@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using System.ComponentModel;
 
 namespace FF9
 {
@@ -28,9 +29,19 @@ namespace FF9
 		public string gEventGlobal { get; set; }
 	}
 
-	public class MiniGameCard
+	public class MiniGameCard : INotifyPropertyChanged
 	{
-		public string id { get; set; }
+		private string mID;
+
+		public string id
+		{
+			get { return mID; }
+			set
+			{
+				mID = value;
+				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(id)));
+			}
+		}
 		public string side { get; set; }
 		public string atk { get; set; }
 		public string type { get; set; }
@@ -38,6 +49,8 @@ namespace FF9
 		public string mdef { get; set; }
 		public string cpoint { get; set; }
 		public string arrow { get; set; }
+
+		public event PropertyChangedEventHandler PropertyChanged;
 	}
 
 	public class __invalid_type__30000MiniGame
@@ -131,10 +144,21 @@ namespace FF9
 		public List<string> sa { get; set; }
 	}
 
-	public class Item
+	public class Item : INotifyPropertyChanged
 	{
-		public string id { get; set; }
+		private string mID;
+		public string id
+		{
+			get { return mID; }
+			set
+			{
+				mID = value;
+				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(id)));
+			}
+		}
 		public string count { get; set; }
+
+		public event PropertyChangedEventHandler PropertyChanged;
 	}
 
 	public class __invalid_type__40000Common

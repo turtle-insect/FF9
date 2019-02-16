@@ -39,5 +39,31 @@ namespace FF9
 			if (dlg.ShowDialog() == false) return;
 			(DataContext as DataContext)?.Save(dlg.FileName);
 		}
+
+		private void MenuItemAbout_Click(object sender, RoutedEventArgs e)
+		{
+			new AboutWindow().ShowDialog();
+		}
+
+		private void ButtonItemChoice_Click(object sender, RoutedEventArgs e)
+		{
+			Item item = (sender as Button)?.DataContext as Item;
+
+			ChoiceWindow window = new ChoiceWindow();
+			window.ID = Convert.ToUInt32(item.id);
+			window.ShowDialog();
+			item.id = window.ID.ToString();
+		}
+
+		private void ButtonCardChoice_Click(object sender, RoutedEventArgs e)
+		{
+			MiniGameCard card = (sender as Button)?.DataContext as MiniGameCard;
+
+			ChoiceWindow window = new ChoiceWindow();
+			window.Type = ChoiceWindow.eType.eCard;
+			window.ID = Convert.ToUInt32(card.id);
+			window.ShowDialog();
+			card.id = window.ID.ToString();
+		}
 	}
 }

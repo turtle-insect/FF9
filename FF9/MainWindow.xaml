@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:FF9"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="MainWindow" Height="450" Width="650">
+        Title="FF9 SaveEditor(Nintendo Switch)" Height="450" Width="650">
     <Window.DataContext>
         <local:DataContext/>
     </Window.DataContext>
@@ -17,6 +17,7 @@
                     <MenuItem Header="_Open" Click="MenuItemFileOpen_Click"/>
                     <MenuItem Header="_Save" Click="MenuItemFileSave_Click"/>
                 </MenuItem>
+                <MenuItem Header="_About" Click="MenuItemAbout_Click"/>
             </Menu>
             <TabControl>
                 <TabItem Header="Basic">
@@ -73,6 +74,58 @@
                             <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding ElementName=ListBoxParty, Path=SelectedItem.max.mp, UpdateSourceTrigger=PropertyChanged}"/>
                         </Grid>
                     </Grid>
+                </TabItem>
+                <TabItem Header="Item">
+                    <ListBox ItemsSource="{Binding Json.Data.__invalid_name__40000_Common.items}">
+                        <ListBox.Resources>
+                            <local:ItemValueConverter x:Key="ItemValueConverter"/>
+                        </ListBox.Resources>
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content="Count :"/>
+                                    <TextBox Text="{Binding count, UpdateSourceTrigger=PropertyChanged}" Width="30"/>
+                                    <Label Content="Name :"/>
+                                    <Button Content="..." Click="ButtonItemChoice_Click"/>
+                                    <Label Content="{Binding id, Converter={StaticResource ItemValueConverter}}"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </TabItem>
+                <TabItem Header="Card">
+                    <ListBox ItemsSource="{Binding Json.Data.__invalid_name__30000_MiniGame.MiniGameCard}">
+                        <ListBox.Resources>
+                            <local:CardValueConverter x:Key="CardValueConverter"/>
+                        </ListBox.Resources>
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Label Content="Name :"/>
+                                        <Button Content="..." Click="ButtonCardChoice_Click"/>
+                                        <Label Content="{Binding id, Converter={StaticResource CardValueConverter}}"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Label Content="type :"/>
+                                        <TextBox Text="{Binding type, UpdateSourceTrigger=PropertyChanged}" Width="30"/>
+                                        <Label Content="side :"/>
+                                        <TextBox Text="{Binding side, UpdateSourceTrigger=PropertyChanged}" Width="30"/>
+                                        <Label Content="atk :"/>
+                                        <TextBox Text="{Binding atk, UpdateSourceTrigger=PropertyChanged}" Width="30"/>
+                                        <Label Content="pdef :"/>
+                                        <TextBox Text="{Binding pdef, UpdateSourceTrigger=PropertyChanged}" Width="30"/>
+                                        <Label Content="mdef :"/>
+                                        <TextBox Text="{Binding mdef, UpdateSourceTrigger=PropertyChanged}" Width="30"/>
+                                        <Label Content="cpoint :"/>
+                                        <TextBox Text="{Binding cpoint, UpdateSourceTrigger=PropertyChanged}" Width="30"/>
+                                        <Label Content="arrow :"/>
+                                        <TextBox Text="{Binding arrow, UpdateSourceTrigger=PropertyChanged}" Width="30"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
                 </TabItem>
             </TabControl>
         </DockPanel>

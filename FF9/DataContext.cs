@@ -10,6 +10,7 @@ namespace FF9
 	class DataContext
 	{
 		public RootObject Json { get; set; }
+		public AppInfo Info { get; private set; } = AppInfo.Info;
 
 		public DataContext() { }
 		public DataContext(String filename)
