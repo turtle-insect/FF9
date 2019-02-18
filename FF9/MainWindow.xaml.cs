@@ -65,5 +65,10 @@ namespace FF9
 			window.ShowDialog();
 			card.id = window.ID.ToString();
 		}
+
+		private void ButtonAbilityChoice_Click(object sender, RoutedEventArgs e)
+		{
+
+		}
 	}
 }

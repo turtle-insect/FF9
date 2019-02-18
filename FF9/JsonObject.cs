@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using System.ComponentModel;
+using System.Collections.ObjectModel;
 
 namespace FF9
 {
@@ -138,9 +139,9 @@ namespace FF9
 		public Basis basis { get; set; }
 		public Info info { get; set; }
 		public string status { get; set; }
-		public List<string> equip { get; set; }
+		public ObservableCollection<string> equip { get; set; }
 		public Bonus bonus { get; set; }
-		public List<string> pa { get; set; }
+		public ObservableCollection<string> pa { get; set; }
 		public List<string> sa { get; set; }
 	}
 

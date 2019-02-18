@@ -12,10 +12,12 @@ namespace FF9
 
 		public Dictionary<uint, String> Items { get; set; } = new Dictionary<uint, String>();
 		public Dictionary<uint, String> Cards { get; set; } = new Dictionary<uint, String>();
+		public Dictionary<uint, String> Abilitys { get; set; } = new Dictionary<uint, String>();
 		private AppInfo()
 		{
 			CreateDictionary("info\\item.txt", Items);
 			CreateDictionary("info\\card.txt", Cards);
+			CreateDictionary("info\\ability.txt", Abilitys);
 		}
 
 		private void CreateDictionary(String filename, Dictionary<uint, String> dictionary)

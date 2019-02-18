@@ -56,7 +56,7 @@
                                 <RowDefinition/>
                                 <RowDefinition/>
                                 <RowDefinition/>
-                                <RowDefinition Height="6*"/>
+                                <RowDefinition Height="5*"/>
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition/>
@@ -73,6 +73,46 @@
                             <Label Grid.Row="4" Content="MaxMP"/>
                             <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding ElementName=ListBoxParty, Path=SelectedItem.max.mp, UpdateSourceTrigger=PropertyChanged}"/>
                         </Grid>
+                        <TabControl Grid.Column="2">
+                            <TabItem Header="Equipment">
+                                <TabItem.Resources>
+                                    <local:ItemValueConverter x:Key="ItemValueConverter"/>
+                                </TabItem.Resources>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition Height="8*"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition Width="15"/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Content="weapon"/>
+                                    <Button Grid.Column="1" Content="..."/>
+                                    <Label Grid.Column="2" Content="{Binding ElementName=ListBoxParty, Path=SelectedItem.equip[0], Converter={StaticResource ItemValueConverter}}"/>
+                                </Grid>
+                            </TabItem>
+                            <TabItem Header="Ability">
+                                <ListBox ItemsSource="{Binding ElementName=ListBoxParty, Path=SelectedItem.pa}">
+                                    <ListBox.Resources>
+                                        <local:AbilityValueConverter x:Key="AbilityValueConverter"/>
+                                    </ListBox.Resources>
+                                    <ListBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Orientation="Horizontal">
+                                                <Button Content="..." Click="ButtonAbilityChoice_Click"/>
+                                                <Label Content="{Binding Converter={StaticResource AbilityValueConverter}}"/>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </ListBox.ItemTemplate>
+                                </ListBox>
+                            </TabItem>
+                        </TabControl>
                     </Grid>
                 </TabItem>
                 <TabItem Header="Item">

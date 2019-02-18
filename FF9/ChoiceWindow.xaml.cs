@@ -23,6 +23,7 @@ namespace FF9
 		{
 			eItem,
 			eCard,
+			eAbility,
 		};
 
 		public uint ID { get; set; }
@@ -60,6 +61,7 @@ namespace FF9
 			ListBoxItem.Items.Clear();
 			Dictionary<uint, String> items = AppInfo.Info.Items;
 			if (Type == eType.eCard) items = AppInfo.Info.Cards;
+			else if (Type == eType.eAbility) items = AppInfo.Info.Abilitys;
 
 			foreach (var item in items)
 			{
