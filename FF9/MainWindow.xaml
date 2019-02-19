@@ -24,7 +24,10 @@
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition/>
-                            <RowDefinition Height="14*"/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition Height="10*"/>
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition/>
@@ -35,6 +38,12 @@
                         </Grid.ColumnDefinitions>
                         <Label Content="Gil"/>
                         <TextBox Grid.Column="1" Text="{Binding Json.Data.__invalid_name__40000_Common.gil, UpdateSourceTrigger=PropertyChanged}"/>
+                        <Label Grid.Row="1" Content="Card Win"/>
+                        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Json.Data.__invalid_name__30000_MiniGame.sWin, UpdateSourceTrigger=PropertyChanged}"/>
+                        <Label Grid.Row="2" Content="Card Lose"/>
+                        <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Json.Data.__invalid_name__30000_MiniGame.sLose, UpdateSourceTrigger=PropertyChanged}"/>
+                        <Label Grid.Row="3" Content="Card Draw"/>
+                        <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding Json.Data.__invalid_name__30000_MiniGame.sDraw, UpdateSourceTrigger=PropertyChanged}"/>
                     </Grid>
                 </TabItem>
                 <TabItem Header="Charactor">
