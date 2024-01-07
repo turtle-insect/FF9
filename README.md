@@ -1,6 +1,6 @@
 ![DL Count](https://img.shields.io/github/downloads/turtle-insect/FF9/total.svg)
 
-# StarOcean2
+# FF9
 Switch FF9 SaveDate Editor
 
 # Portal
@@ -20,13 +20,8 @@ https://store-jp.nintendo.com/list/software/70010000010543.html
 * [Visual Studio 2022](https://visualstudio.microsoft.com/ja/vs/)
 
 # Editor Step
-SaveData = savedata0x
 * SaveData Export
 * Open SavaData
 * Edit SavaData
 * Save SaveData
 * SaveData Import
-
-# Credit
-[SkillerCMP](https://github.com/SkillerCMP)  
-https://docs.google.com/spreadsheets/d/1FBkLqn542IIYeFAg3fF1c6W6-pi6ympMFjsJGogquqI
